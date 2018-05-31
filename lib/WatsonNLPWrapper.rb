@@ -1,5 +1,11 @@
 require "WatsonNLPWrapper/version"
 
 module WatsonNLPWrapper
-  # Your code goes here...
+  class WatsonNLPApi
+    def initialize(url, username, password)
+      @url = url
+      @username = username
+      @password = password
+    end
+  end
 end
