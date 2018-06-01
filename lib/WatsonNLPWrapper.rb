@@ -6,7 +6,7 @@ module WatsonNLPWrapper
   class WatsonNLPApi
     include HTTParty
 
-    def initialize(url, username, password, version='2018-03-16')
+    def initialize(url, username, password, version)
       @url = url
       @username = username
       @password = password
@@ -16,10 +16,10 @@ module WatsonNLPWrapper
     def analyze(text, features)
       response = self.class.post(
         "#{@url}/analyze?version=#{@version}",
-        :query => {
+        :body => {
           :text => "#{text}",
           :features => features
-        },
+        }.to_json,
         :basic_auth => auth,
         :headers => {
           "Content-Type" => "application/json"
