@@ -6,3 +6,4 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 gem 'httpparty', '~> 0.0.7'
+gem 'json', '~> 1.8', '>= 1.8.3'
