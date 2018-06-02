@@ -13,7 +13,7 @@ module WatsonNLPWrapper
       @version = version
     end
 
-    def analyze(text, features)
+    def analyze(text, features = default_features)
       response = self.class.post(
         "#{@url}/analyze?version=#{@version}",
         :body => {
@@ -33,6 +33,21 @@ module WatsonNLPWrapper
       {
         :username => @username,
         :password => @password
+      }
+    end
+
+    def default_features
+      {
+        entities: {
+          emotion: true,
+          sentiment: true,
+          limit: 2
+        },
+        keywords: {
+          emotion: true,
+          sentiment: true,
+          limit: 2
+        }
       }
     end
   end
