@@ -16,12 +16,12 @@ module WatsonNLPWrapper
     def analyze(text, features = default_features)
       response = self.class.post(
         "#{@url}/analyze?version=#{@version}",
-        :body => {
-          :text => "#{text}",
-          :features => features
+        body: {
+          text: "#{text}",
+          features: features
         }.to_json,
-        :basic_auth => auth,
-        :headers => {
+        basic_auth: auth,
+        headers: {
           "Content-Type" => "application/json"
         }
       )
@@ -31,8 +31,8 @@ module WatsonNLPWrapper
 
     def auth
       {
-        :username => @username,
-        :password => @password
+        username: @username,
+        password: @password
       }
     end
 
