@@ -26,7 +26,7 @@ module WatsonNLPWrapper
         }.to_json,
         basic_auth: auth,
         headers: {
-          "Content-Type" => "application/json"
+          "Content-Type" => CONTENT_TYPE
         }
       )
 
