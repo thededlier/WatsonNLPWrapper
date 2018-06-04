@@ -1,13 +1,15 @@
-require "WatsonNLPWrapper/version"
 require 'json'
 require 'httparty'
+
+require 'WatsonNLPWrapper/version'
+require 'WatsonNLPWrapper/constants'
 
 module WatsonNLPWrapper
   class WatsonNLPApi
     include HTTParty
-
+    include WatsonNLPWrapper::Constants
     # Initialize instance variables for use later
-    def initialize(url, username, password, version)
+    def initialize(url, username, password, version = DEFAULT_VERSION)
       @url = url
       @username = username
       @password = password
