@@ -2,9 +2,7 @@
 
 [![Build Status](https://travis-ci.org/thededlier/WatsonNLPWrapper.svg?branch=master)](https://travis-ci.org/thededlier/WatsonNLPWrapper)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/WatsonNLPWrapper`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a simple ruby wrapper implementation of IBM's Watson Natural Language Understanding API which is used to analyze text to extract meta-data from content
 
 ## Installation
 
@@ -24,7 +22,39 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# Require the library
+require "WatsonNLPWrapper"
+
+# Initialize
+# Version parameter is not needed to be sent and by default is 2018-03-16
+nlp = WatsonNLPWrapper::WatsonNLPApi.new('{url}', '{username}', '{password}', '{version}')
+
+# Set sample text
+text = '{sample text}'
+
+# Call the analyze API with default features
+# This will give a json response
+nlp.analyze(text)
+
+# If you want to enable specific features only and not the default features
+
+features =
+  {
+    entities: {
+      emotion: true,
+      sentiment: true,
+      limit: 2
+    },
+    keywords: {
+      emotion: true,
+      sentiment: true,
+      limit: 2
+    }
+  }
+
+nlp.analyze(text, features)
+```
 
 ## Development
 
