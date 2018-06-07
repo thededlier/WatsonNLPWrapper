@@ -1,6 +1,7 @@
 # WatsonNLPWrapper
 
 [![Build Status](https://travis-ci.org/thededlier/WatsonNLPWrapper.svg?branch=master)](https://travis-ci.org/thededlier/WatsonNLPWrapper)
+[![Gem Version](https://badge.fury.io/rb/WatsonNLPWrapper.svg)](https://badge.fury.io/rb/WatsonNLPWrapper)
 
 This is a simple ruby wrapper implementation of IBM's Watson Natural Language Understanding API which is used to analyze text to extract meta-data from content
 
