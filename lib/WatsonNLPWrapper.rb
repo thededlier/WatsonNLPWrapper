@@ -18,6 +18,10 @@ module WatsonNLPWrapper
 
     # Sends a POST request to analyze text with certain features enabled
     def analyze(text, features = default_features)
+      if text.nil? || features.nil?
+        raise ArgumentError.new("Arguments cannot be nil")
+      end
+      
       response = self.class.post(
         "#{@url}/analyze?version=#{@version}",
         body: {
