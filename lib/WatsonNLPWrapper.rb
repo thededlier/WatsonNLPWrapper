@@ -21,7 +21,7 @@ module WatsonNLPWrapper
       if text.nil? || features.nil?
         raise ArgumentError.new("Arguments cannot be nil")
       end
-      
+
       response = self.class.post(
         "#{@url}/analyze?version=#{@version}",
         body: {
@@ -37,28 +37,29 @@ module WatsonNLPWrapper
       response.parsed_response
     end
 
-    # Returns credentials used for basic auth
-    def auth
-      {
-        username: @username,
-        password: @password
-      }
-    end
-
-    # Default features if no features specified
-    def default_features
-      {
-        entities: {
-          emotion: true,
-          sentiment: true,
-          limit: 2
-        },
-        keywords: {
-          emotion: true,
-          sentiment: true,
-          limit: 2
+    private
+      # Returns credentials used for basic auth
+      def auth
+        {
+          username: @username,
+          password: @password
         }
-      }
-    end
+      end
+
+      # Default features if no features specified
+      def default_features
+        {
+          entities: {
+            emotion: true,
+            sentiment: true,
+            limit: 2
+          },
+          keywords: {
+            emotion: true,
+            sentiment: true,
+            limit: 2
+          }
+        }
+      end
   end
 end
