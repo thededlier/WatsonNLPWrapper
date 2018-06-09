@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    WatsonNLPWrapper (1.0.0)
+    WatsonNLPWrapper (1.1.0)
       httparty (~> 0.13.7)
       json (~> 1.8)
 
